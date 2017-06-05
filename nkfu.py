@@ -58,6 +58,7 @@ crsno2 = 1
 use_lang = 0
 qus_url = ""
 if len(patt1)!=0:
+    i = 1
     for url in patt1:
         if "lang=C" in url:
             use_lang_com = re.compile(r'&use_lang=(\d?)')
@@ -111,10 +112,8 @@ if len(patt1)!=0:
             qus = res.get(qus_url,headers = qus_header)
             
             save = res.post(save_data_url, headers = save_data_header, params = save_data_param)
-        print "finish!"
+        print "the %d questionnairesis finished!"
+        i+=1
         
 else:
-    print "no requests!"
-
-
-
+    print "no questionnaires!"
