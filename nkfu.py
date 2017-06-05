@@ -1,5 +1,5 @@
 #coding=utf-8
-import requests,re,urllib2,cookielib
+import requests,re,urllib2,cookielib,os
 
 
 home_url = "http://aais15.nkfust.edu.tw/crs_quest/fill_out.jsp?lang=C&crsno="
@@ -74,36 +74,36 @@ if len(patt1)!=0:
                                    "Origin":"http://aais15.nkfust.edu.tw",
                                    "Referer":qus_url,
                                    "cookie":"JSESSIONID=%s; TS019720c7=%s"%(jsessionid[0],TS019720c7[0])}
-            
+            answer = "5"
             save_data_param = {"use_lang":"%s"%use_lang[0],
             "lang":"C",
             "card_type":"1",
             "crsno":"%s"%crs[0],
             "crsno2":"%s"%crs2[0],
-            "qa01":"5",
-            "qa02":"5",
-            "qa03":"5",
-            "qa04":"5",
-            "qa05":"5",
-            "qb01":"5",
-            "qb02":"5",
-            "qb03":"5",
-            "qb04":"5",
-            "qb05":"5",
-            "qb06":"5",
-            "qb07":"5",
-            "qb08":"5",
-            "qb09":"5",
-            "qb10":"5",
-            "qb11":"5",
-            "qb12":"5",
-            "qb13":"5",
-            "qb14":"5",
-            "qb15":"5",
-            "qb16":"5",
-            "qb17":"5",
-            "qb18":"5",
-            "qb19":"5",
+            "qa01":answer,
+            "qa02":answer,
+            "qa03":answer,
+            "qa04":answer,
+            "qa05":answer,
+            "qb01":answer,
+            "qb02":answer,
+            "qb03":answer,
+            "qb04":answer,
+            "qb05":answer,
+            "qb06":answer,
+            "qb07":answer,
+            "qb08":answer,
+            "qb09":answer,
+            "qb10":answer,
+            "qb11":answer,
+            "qb12":answer,
+            "qb13":answer,
+            "qb14":answer,
+            "qb15":answer,
+            "qb16":answer,
+            "qb17":answer,
+            "qb18":answer,
+            "qb19":answer,
             "qc01":"",
             "qc02":"",
             "qc03":"",
@@ -112,8 +112,10 @@ if len(patt1)!=0:
             qus = res.get(qus_url,headers = qus_header)
             
             save = res.post(save_data_url, headers = save_data_header, params = save_data_param)
-        print "the %d questionnairesis finished!"
+        print "the %d questionnairesis finished!"%i
         i+=1
-        
+    print "all questionnairesis"
+    os.system('pause')
 else:
     print "no questionnaires!"
+    os.system('pause')
